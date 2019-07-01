@@ -1,0 +1,7 @@
+{
+  "name": "msp-prime-movies",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
