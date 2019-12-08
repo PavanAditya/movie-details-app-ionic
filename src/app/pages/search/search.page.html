@@ -3,7 +3,8 @@
     <ion-buttons slot="start">
       <ion-back-button text=""></ion-back-button>
     </ion-buttons>
-    <ion-searchbar [(ngModel)]="searchInput" placeholder="" [showCancelButton]="false" (ionInput)="onInput($event)" (ionClear)="onClear($event)"></ion-searchbar>    
+    <ion-searchbar [(ngModel)]="searchInput" placeholder="" [showCancelButton]="false" (ionInput)="onInput($event)"
+      (ionClear)="onClear($event)"></ion-searchbar>
   </ion-toolbar>
   <ion-toolbar>
     <ion-segment [(ngModel)]="searchType" (ionChange)="onSearchTypeChange()">
@@ -19,7 +20,8 @@
     <div class="result" *ngFor="let movie of results" (click)="onMovieDetail(movie.id)">
       <div class="poster">
         <img *ngIf="movie.poster_path" class="poster" [src]="'https://image.tmdb.org/t/p/w185' + movie.poster_path">
-        <img *ngIf="movie.poster_path" class="poster-effect" [src]="'https://image.tmdb.org/t/p/w185' + movie.poster_path">
+        <img *ngIf="movie.poster_path" class="poster-effect"
+          [src]="'https://image.tmdb.org/t/p/w185' + movie.poster_path">
       </div>
       <div class="data">
         <ion-icon class="arrow" name="arrow-forward"></ion-icon>
@@ -27,11 +29,21 @@
         <div class="subtitle">{{ movie.release_date | date:'yyyy' }}</div>
         <div class="vote">
           <div class="stars">
-            <ion-icon [name]="movie.vote_average >= 2 ? 'star' : movie.vote_average >= 1 ? 'star-half' : 'star-outline'"></ion-icon>
-            <ion-icon [name]="movie.vote_average >= 4 ? 'star' : movie.vote_average >= 3 ? 'star-half' : 'star-outline'"></ion-icon>
-            <ion-icon [name]="movie.vote_average >= 6 ? 'star' : movie.vote_average >= 5 ? 'star-half' : 'star-outline'"></ion-icon>
-            <ion-icon [name]="movie.vote_average >= 8 ? 'star' : movie.vote_average >= 7 ? 'star-half' : 'star-outline'"></ion-icon>
-            <ion-icon [name]="movie.vote_average >= 10 ? 'star' : movie.vote_average >= 9 ? 'star-half' : 'star-outline'"></ion-icon>
+            <ion-icon
+              [name]="movie.vote_average >= 2 ? 'star' : movie.vote_average >= 1 ? 'star-half' : 'star-outline'">
+            </ion-icon>
+            <ion-icon
+              [name]="movie.vote_average >= 4 ? 'star' : movie.vote_average >= 3 ? 'star-half' : 'star-outline'">
+            </ion-icon>
+            <ion-icon
+              [name]="movie.vote_average >= 6 ? 'star' : movie.vote_average >= 5 ? 'star-half' : 'star-outline'">
+            </ion-icon>
+            <ion-icon
+              [name]="movie.vote_average >= 8 ? 'star' : movie.vote_average >= 7 ? 'star-half' : 'star-outline'">
+            </ion-icon>
+            <ion-icon
+              [name]="movie.vote_average >= 10 ? 'star' : movie.vote_average >= 9 ? 'star-half' : 'star-outline'">
+            </ion-icon>
           </div>
         </div>
       </div>
@@ -42,7 +54,8 @@
     <div class="result" *ngFor="let person of results" (click)="onPersonDetail(person.id)">
       <div class="poster">
         <img *ngIf="person.profile_path" class="poster" [src]="'https://image.tmdb.org/t/p/w185' + person.profile_path">
-        <img *ngIf="person.profile_path" class="poster-effect" [src]="'https://image.tmdb.org/t/p/w185' + person.profile_path">
+        <img *ngIf="person.profile_path" class="poster-effect"
+          [src]="'https://image.tmdb.org/t/p/w185' + person.profile_path">
       </div>
       <div class="data">
         <ion-icon class="arrow" name="arrow-forward"></ion-icon>
@@ -58,10 +71,15 @@
   </div>
 
   <div class="content-fullscreen-message" *ngIf="results && results.length == 0">
-    They have not been found <span *ngIf="searchType === 'movies'">films</span><span *ngIf="searchType == 'persons'">actors</span>
+    They have not been found <span *ngIf="searchType === 'movies'">films</span><span
+      *ngIf="searchType == 'persons'">actors</span>
   </div>
   <div class="recognizer-box" *ngIf="!results && searchType == 'persons'">
     <p>Upload a photo and we will look for the celebrities that appear in it</p>
     <app-celebrity-recognizer (recognized)="onRecognized($event)"></app-celebrity-recognizer>
   </div>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 </ion-content>

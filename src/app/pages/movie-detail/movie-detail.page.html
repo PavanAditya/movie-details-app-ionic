@@ -28,11 +28,16 @@
         <b>{{ movie.vote_average }}</b>/10
       </div>
       <div class="stars">
-        <ion-icon [name]="movie.vote_average >= 2 ? 'star' : movie.vote_average >= 1 ? 'star-half' : 'star-outline'"></ion-icon>
-        <ion-icon [name]="movie.vote_average >= 4 ? 'star' : movie.vote_average >= 3 ? 'star-half' : 'star-outline'"></ion-icon>
-        <ion-icon [name]="movie.vote_average >= 6 ? 'star' : movie.vote_average >= 5 ? 'star-half' : 'star-outline'"></ion-icon>
-        <ion-icon [name]="movie.vote_average >= 8 ? 'star' : movie.vote_average >= 7 ? 'star-half' : 'star-outline'"></ion-icon>
-        <ion-icon [name]="movie.vote_average >= 10 ? 'star' : movie.vote_average >= 9 ? 'star-half' : 'star-outline'"></ion-icon>
+        <ion-icon [name]="movie.vote_average >= 2 ? 'star' : movie.vote_average >= 1 ? 'star-half' : 'star-outline'">
+        </ion-icon>
+        <ion-icon [name]="movie.vote_average >= 4 ? 'star' : movie.vote_average >= 3 ? 'star-half' : 'star-outline'">
+        </ion-icon>
+        <ion-icon [name]="movie.vote_average >= 6 ? 'star' : movie.vote_average >= 5 ? 'star-half' : 'star-outline'">
+        </ion-icon>
+        <ion-icon [name]="movie.vote_average >= 8 ? 'star' : movie.vote_average >= 7 ? 'star-half' : 'star-outline'">
+        </ion-icon>
+        <ion-icon [name]="movie.vote_average >= 10 ? 'star' : movie.vote_average >= 9 ? 'star-half' : 'star-outline'">
+        </ion-icon>
       </div>
       <div class="count">{{ movie.vote_count }} </div>
     </div>
@@ -40,19 +45,28 @@
     <div class="overview">{{ movie.overview }}</div>
 
     <div class="duration" *ngIf="movie && movie.runtime">
-      <div class="label"><ion-icon name="md-time"></ion-icon>Duration</div>
+      <div class="label">
+        <ion-icon name="md-time"></ion-icon>Duration
+      </div>
       <div class="value">{{ movie.runtime }} mins</div>
     </div>
     <div class="genres" *ngIf="movie && movie.genres && movie.genres.length">
-      <div class="label"><ion-icon name="md-pricetag"></ion-icon>Genre</div>
-      <div class="value"><span *ngFor="let genre of movie.genres; let last = last">{{ genre.name }}<span *ngIf="!last">, </span></span></div>
+      <div class="label">
+        <ion-icon name="md-pricetag"></ion-icon>Genre
+      </div>
+      <div class="value"><span *ngFor="let genre of movie.genres; let last = last">{{ genre.name }}<span *ngIf="!last">,
+          </span></span></div>
     </div>
 
     <div class="cast" *ngIf="movie && movie.credits && movie.credits.cast && movie.credits.cast.length">
-      <div class="label"><ion-icon name="md-people"></ion-icon>Distribution</div>
+      <div class="label">
+        <ion-icon name="md-people"></ion-icon>Distribution
+      </div>
       <div class="persons">
         <div *ngFor="let a of movie.credits.cast; let index = index">
-          <div class="person" *ngIf="index < 15" [style.background-image]="a.profile_path ? 'url(https://image.tmdb.org/t/p/w500' + a.profile_path + ')' : ''" (click)="onPersonDetail(a.name)">
+          <div class="person" *ngIf="index < 15"
+            [style.background-image]="a.profile_path ? 'url(https://image.tmdb.org/t/p/w500' + a.profile_path + ')' : ''"
+            (click)="onPersonDetail(a.name)">
             <div class="name">{{ a.name }}</div>
           </div>
         </div>
@@ -67,4 +81,7 @@
 
   </div>
 
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 </ion-content>

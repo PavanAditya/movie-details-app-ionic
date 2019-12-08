@@ -30,10 +30,12 @@ export class SearchPage {
 
   onMovieDetail(id: number) {
     this.router.navigate(['movie-detail', id]);
+    setTimeout(() => { window.location.reload(); }, 500);
   }
 
   onPersonDetail(id: number) {
     this.router.navigate(['person-detail', id]);
+    setTimeout(() => { window.location.reload(); }, 500);
   }
 
   onSearchTypeChange() {
@@ -46,7 +48,7 @@ export class SearchPage {
       this.tmdb.searchPerson(name).subscribe(res => {
         if (!this.results) { this.results = []; }
         if (res) {
-          this.results = <Person[]>[ ...this.results, res ];
+          this.results = [ ...this.results, res ] as Person[];
         }
       });
     }
@@ -71,6 +73,11 @@ export class SearchPage {
     this.tmdb.searchPersons(query).subscribe(res => {
       this.results = res;
     });
+  }
+
+  doRefresh(refresher) {
+    setTimeout(() => { window.location.reload(); }, 500);
+    refresher.target.complete();
   }
 
 }

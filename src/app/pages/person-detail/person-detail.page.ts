@@ -21,12 +21,13 @@ export class PersonDetailPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    const personId = this.activatedRoute.snapshot.params['id'];
+    const personId = this.activatedRoute.snapshot.params.id;
     this.getPersonDetail(personId);
   }
 
   onMovieDetail(id: number) {
     this.router.navigate(['movie-detail', id]);
+    setTimeout(() => { window.location.reload(); }, 500);
   }
 
   private getPersonDetail(id: number) {
@@ -34,6 +35,12 @@ export class PersonDetailPage implements OnInit {
       this.person = res;
       this.track.viewPerson(id, this.person.name);
     });
+  }
+
+  doRefresh(refresher) {
+    this.ngOnInit();
+    setTimeout(() => { window.location.reload(); }, 500);
+    refresher.target.complete();
   }
 
 }

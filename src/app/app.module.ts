@@ -7,6 +7,9 @@ import { AppRoutes } from './app.routes';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
+import { MovieDetailPageModule } from './pages/movie-detail/movie-detail.module';
+import { HomePage } from './pages/home/home.page';
+import { HomePageModule } from './pages/home/home.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +17,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    HomePageModule,
+    MovieDetailPageModule,
     IonicModule.forRoot({ backButtonText: 'Atrás' }),
     RouterModule.forRoot(AppRoutes)
   ],

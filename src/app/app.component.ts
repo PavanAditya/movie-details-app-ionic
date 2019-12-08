@@ -17,6 +17,11 @@ export class AppComponent {
     this.initializeApp();
   }
 
+  // tslint:disable-next-line:use-life-cycle-interface
+  ngOnInit() {
+    this.initializeApp();
+  }
+
   initializeApp() {
     if (this.platform.is('cordova')) {
       this.platform.ready().then(() => {

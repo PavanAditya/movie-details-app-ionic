@@ -42,10 +42,12 @@ export class HomePage implements OnInit {
 
   onMovieDetail(id: number) {
     this.router.navigate(['movie-detail', id]);
+    setTimeout(() => { window.location.reload(); }, 500);
   }
 
   onSearch() {
     this.router.navigate(['search']);
+    setTimeout(() => { window.location.reload(); }, 500);
   }
 
   private async loadMovies() {
@@ -70,6 +72,12 @@ export class HomePage implements OnInit {
       this.movies = [];
       loading.dismiss();
     });
+  }
+
+  doRefresh(refresher) {
+    this.ngOnInit();
+    setTimeout(() => { window.location.reload(); }, 500);
+    refresher.target.complete();
   }
 
 }

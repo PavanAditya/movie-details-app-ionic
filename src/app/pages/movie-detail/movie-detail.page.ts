@@ -34,6 +34,12 @@ export class MovieDetailPage implements OnInit {
 
   onPersonDetail(id: number) {
     this.router.navigate(['person-detail', id]);
+    setTimeout(() => { window.location.reload(); }, 500);
   }
 
+  doRefresh(refresher) {
+    this.ngOnInit();
+    setTimeout(() => { window.location.reload(); }, 500);
+    refresher.target.complete();
+  }
 }

@@ -19,20 +19,27 @@
     <div class="movie" *ngFor="let movie of movies" (click)="onMovieDetail(movie.id)">
       <div class="poster">
         <img *ngIf="movie.poster_path" class="poster" [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path">
-        <img *ngIf="movie.poster_path" class="poster-effect" [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path">
+        <img *ngIf="movie.poster_path" class="poster-effect"
+          [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path">
       </div>
       <div class="title">{{ movie.title }}</div>
       <div class="year">{{ movie.release_date | date:'yyyy' }}</div>
-      <div class="vote"><ion-icon name="star"></ion-icon><b>{{ movie.vote_average }}</b>/10</div>
+      <div class="vote">
+        <ion-icon name="star"></ion-icon><b>{{ movie.vote_average }}</b>/10
+      </div>
     </div>
   </div>
-  
+
   <div class="content-fullscreen-message" *ngIf="movies && movies.length == 0">
     There was an error, no movies found
   </div>
 
-  <ion-button *ngIf="movies && movies.length > 0 && page < 5" expand="full" size="large" fill="clear" (click)="onNextPage()">Ver más</ion-button>
+  <ion-button *ngIf="movies && movies.length > 0 && page < 5" expand="full" size="large" fill="clear"
+    (click)="onNextPage()">Ver más</ion-button>
 
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 </ion-content>
 
 <ion-footer>
