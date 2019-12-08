@@ -3,9 +3,9 @@
 Movies App
 ==========
 
-![](doc/shot01.png "Okode Movies App - List") 
-![](doc/shot02.png "Okode Movies App - Detail") 
-![](doc/shot03.png "Okode Movies App - Celebrity")
+![](doc/shot01.png "MSP prime Movies App - List") 
+![](doc/shot02.png "MSP prime Movies App - Detail") 
+![](doc/shot03.png "MSP prime Movies App - Celebrity")
 
 Requirements
 ------------
