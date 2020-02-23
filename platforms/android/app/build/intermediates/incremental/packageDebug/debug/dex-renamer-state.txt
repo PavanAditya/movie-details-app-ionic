@@ -1,0 +1,4 @@
+#Mon Feb 24 02:22:18 IST 2020
+base.0=E\:\\workspaces\\vsc-workspace\\msp-prime-movies\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex

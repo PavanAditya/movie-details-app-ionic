@@ -1,0 +1,43 @@
+{
+    "logs": [
+        {
+            "outputFile": "E:\\workspaces\\vsc-workspace\\msp-prime-movies\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "E:\\workspaces\\vsc-workspace\\msp-prime-movies\\platforms\\android\\app\\build\\generated\\fabric\\res\\debug\\values\\com_crashlytics_build_id.xml",
+                    "from": {
+                        "startLines": "8",
+                        "startColumns": "0",
+                        "startOffsets": "311",
+                        "endColumns": "162",
+                        "endOffsets": "473"
+                    },
+                    "to": {
+                        "startLines": "4",
+                        "startColumns": "4",
+                        "startOffsets": "219",
+                        "endColumns": "164",
+                        "endOffsets": "379"
+                    }
+                },
+                {
+                    "source": "E:\\workspaces\\vsc-workspace\\msp-prime-movies\\platforms\\android\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "4,2,3",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "159,55,110",
+                        "endColumns": "63,54,48",
+                        "endOffsets": "218,105,154"
+                    },
+                    "to": {
+                        "startLines": "2,3,5",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "100,164,384",
+                        "endColumns": "63,54,48",
+                        "endOffsets": "159,214,428"
+                    }
+                }
+            ]
+        }
+    ]
+}

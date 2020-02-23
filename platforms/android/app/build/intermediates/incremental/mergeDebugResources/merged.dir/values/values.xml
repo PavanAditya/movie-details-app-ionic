@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <string name="activity_name">@string/launcher_name</string>
+    <string name="app_name">Find my MovIeeEEe</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">db9adfc9-4c32-41d4-a3b6-875c723fc64a</string>
+    <string name="launcher_name">Movies</string>
+</resources>
