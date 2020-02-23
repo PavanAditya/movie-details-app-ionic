@@ -29,7 +29,7 @@
     "@ionic/schematics-angular": "1.0.7",
     "@types/bytebuffer": "^5.0.40",
     "aws-sdk": "2.250.1",
-    "cordova-android": "7.1.0",
+    "cordova-android": "^8.1.0",
     "cordova-fabric-plugin": "1.1.14-dev",
     "cordova-ios": "4.5.4",
     "cordova-plugin-device": "2.0.2",
